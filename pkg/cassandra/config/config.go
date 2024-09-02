@@ -111,7 +111,8 @@ func (c *Configuration) NewSession(logger *zap.Logger) (cassandra.Session, error
 // NewCluster creates a new gocql cluster from the configuration
 func (c *Configuration) NewCluster(logger *zap.Logger) (*gocql.ClusterConfig, error) {
 	cluster := gocql.NewCluster(c.Servers...)
-	cluster.Keyspace = c.Keyspace
+	// Remove the keyspace because it may not exist. Key space would be added later
+	// cluster.Keyspace = c.Keyspace
 	cluster.NumConns = c.ConnectionsPerHost
 	cluster.Timeout = c.Timeout
 	cluster.ConnectTimeout = c.ConnectTimeout
