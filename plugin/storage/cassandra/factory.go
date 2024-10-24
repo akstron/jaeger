@@ -137,31 +137,7 @@ func (f *Factory) configureFromOptions(o *Options) {
 	}
 }
 
-const (
-	MODE               = `MODE`
-	DATACENTER         = `DATACENTER`
-	TRACE_TTL          = `TRACE_TTL`
-	DEPENDENCIES_TTL   = `DEPENDENCIES_TTL`
-	KEYSPACE           = `KEYSPACE`
-	REPLICATION_FACTOR = `REPLICATION_FACTOR`
-	VERSION            = `VERSION`
-	COMPACTION_WINDOW  = `COMPACTION_WINDOW`
-)
-
 // Parameters required for initilizing the db
-type StorageConfigParams struct {
-	mode                   string
-	datacenter             string
-	trace_ttl              int
-	dependencies_ttl       int
-	keyspace               string
-	replication_factor     int
-	replication            string
-	cas_version            int
-	compaction_window_size int
-	compaction_window_unit string
-}
-
 func constructStorageConfigParams() (*StorageConfigParams, error) {
 	var err error
 

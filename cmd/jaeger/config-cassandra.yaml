@@ -17,9 +17,23 @@ extensions:
       some_storage:
         cassandra:
           keyspace: "jaeger_v1_dc1"
+          schema:
+            datacenter: "test"
+            trace_ttl: 172800
+            dependencies_ttl: 0
+            replication_factor: 1
+            cas_version: 4
+            compaction_window: "1m"
       another_storage:
         cassandra:
           keyspace: "jaeger_v1_dc1"
+          schema:
+            datacenter: "test"
+            trace_ttl: 172800
+            dependencies_ttl: 0
+            replication_factor: 1
+            cas_version: 4
+            compaction_window: "1m"
 receivers:
   otlp:
     protocols:
