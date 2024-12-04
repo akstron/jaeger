@@ -177,6 +177,8 @@ func (f *Factory) Initialize(metricsFactory metrics.Factory, logger *zap.Logger)
 		}
 	}
 
+	// TODO: go routine to start rollover goes here
+
 	return nil
 }
 

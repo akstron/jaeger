@@ -136,6 +136,18 @@ type Configuration struct {
 	Tags                     TagsAsFields  `mapstructure:"tags_as_fields"`
 	// Enabled, if set to true, enables the namespace for storage pointed to by this configuration.
 	Enabled bool `mapstructure:"-"`
+
+	// ---- jaeger-rollover configs ----
+	Rollover RolloverConfig `mapstructure:"rollover"`
+}
+
+type RolloverConfig struct {
+	// Period is the time period for running rollover
+	Period time.Duration `mapstructure:"period"`
+	// Condition is the json string based on which rollover is performed
+	Conditions string `mapstructure:"conditions"`
+	// Enabled is if the rollover feature is enabled
+	Enabled bool `mapstructure:"enabled"`
 }
 
 // TagsAsFields holds configuration for tag schema.
